@@ -9,6 +9,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:
+      SOLACE_HOST: ${{ secrets.SOLACE_HOST }}
+      SOLACE_USERNAME: ${{ secrets.SOLACE_USERNAME }}
+      SOLACE_PASSWORD: ${{ secrets.SOLACE_PASSWORD }}
+
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3
