@@ -1,0 +1,21 @@
+name: Deploy Solace Queue via SEMPv2
+
+on:
+  push:
+    paths:
+      - 'configs/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Deploy Queue to Solace
+      run: |
+        curl -X POST "$SOLACE_HOST/SEMP/v2/config/msgVpns/default/queues" \
+        -u "$SOLACE_USERNAME:$SOLACE_PASSWORD" \
+        -H "Content-Type: application/json" \
+        -d @configs/create-queue.json

@@ -1,0 +1,9 @@
+{
+  "queue": {
+    "queueName": "my-test-queue",
+    "accessType": "exclusive",
+    "permission": "consume",
+    "ingressEnabled": true,
+    "egressEnabled": true
+  }
+}
